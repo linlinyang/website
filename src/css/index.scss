@@ -1,0 +1,63 @@
+@mixin size(
+	$width: null,
+	$height: null
+){
+	@if($width){
+		width: $width;
+	}
+	@if($height){
+		height: $height;
+	}
+}
+
+@mixin fcw(
+	$size: null,
+	$color: null,
+	$weight: null
+){
+	@if($size){
+		font-size: $size;
+	}
+	@if($color){
+		color: $color;
+	}
+	@if($weight){
+		font-weight: $weight;
+	}
+}
+
+$lightColor: #ccc;
+
+@font-face {
+  font-family: 'myFont';
+  src: url('../fonts/font2.ttf') format('truetype');
+}
+
+body{
+	background-color: $lightColor;
+}
+
+.bg-title{
+	margin-top: 30px;
+	text-align: center;
+	@include fcw(20px,#666);
+	font-family: 'myFont';
+}
+
+.box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+
+	img{
+		border: 0;
+		display: block;
+	}
+}
+
+.logo-box{
+	@include size(375px,61px);
+	margin: 100px auto 0;
+	background: url(../assets/logo.jpg) no-repeat center;
+}
