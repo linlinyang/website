@@ -4,7 +4,6 @@ let path = require('path'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),//文件清除
 	MiniCssExtractPlugin = require('mini-css-extract-plugin'),//分离css文件成外链样式
 	glob = require('glob'),
-	PurifyCssWebpack = require('purifycss-webpack'),//去除冗余css
 	OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),//压缩css
 	UglifyJsPlugin  = require('uglifyjs-webpack-plugin'),//压缩js
 	pathResolve = (targetPath) => path.resolve(__dirname,targetPath);
@@ -19,9 +18,6 @@ module.exports = smart(base,{
 		new CleanWebpackPlugin(['dist']),
 		new MiniCssExtractPlugin({
 			filename: 'css/[name].[contenthash:7].css'
-		}),
-		new PurifyCssWebpack({
-			paths: glob.sync(pathResolve('src/views/*.html'))
 		})
 	],
 	optimization: {
